@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Monthsary Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ffdde1, #fccb90);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(15px);
+        text-align: center;
+        color: white;
+        max-width: 420px;
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+        animation: fadeIn 1.5s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* PHOTO STYLE */
+    .photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid white;
+        box-shadow: 0 0 25px rgba(255,255,255,0.8);
+        margin-bottom: 15px;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { box-shadow: 0 0 15px rgba(255,255,255,0.6); }
+        to { box-shadow: 0 0 35px rgba(255,255,255,1); }
+    }
+
+    h1 { font-size: 2.2em; margin-bottom: 8px; }
+    .names { font-size: 1.3em; margin-bottom: 10px; font-weight: 500; }
+    h2 { font-weight: 300; margin-bottom: 20px; }
+    p { font-size: 1.05em; line-height: 1.6em; }
+
+    .heart {
+        font-size: 42px;
+        animation: beat 1s infinite;
+        margin-top: 15px;
+    }
+
+    @keyframes beat {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.25); }
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(45deg, #ff6b81, #ff9a9e);
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+    }
+
+    .floating-heart {
+        position: absolute;
+        color: rgba(255,255,255,0.6);
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        30% { opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <!-- YOUR PHOTO HERE -->
+    <img src="joules.jpg" class="photo" alt="Us">
+
+    <h1>Happy Monthsary Love 💖</h1>
+    <div class="names">HAPPY MONTHSARY LANGGA 🥰</div>
+    <h2>ILOVEYOUUUSOOOSOOMUCHHH</h2>
+
+    <p>
+        This past month has been really special because it's the beginning of us — officially.
+        I’m grateful for every moment, every laugh, and every memory we’re starting to build together.
+        I’m really happy I get to call you mine, and I’m excited for all the months ahead.
+    </p>
+
+    <div class="heart">❤️</div>
+    <button onclick="showMessage()">Click Me</button>
+</div>
+
+<script>
+    function showMessage() {
+        alert("Happy Monthsary, langga 💕 I love you so much!");
+    }
+
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 15 + "px";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => { heart.remove(); }, 6000);
+    }, 500);
+</script>
+
+</body>
+</html>
