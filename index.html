@@ -12,9 +12,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffd1ff);
     overflow: hidden;
+}
+
+/* Soft floating background circles */
+body::before, body::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 10s infinite alternate;
+}
+body::after { right: -100px; bottom: -100px; }
+body::before { left: -100px; top: -100px; }
+
+@keyframes float {
+    to { transform: translateY(-40px); }
 }
 
 /* Envelope */
@@ -24,12 +42,12 @@ body {
 }
 
 .envelope {
-    width: 200px;
-    height: 130px;
+    width: 220px;
+    height: 140px;
     background: white;
     position: relative;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
 .flap {
@@ -37,56 +55,69 @@ body {
     top: 0;
     width: 0;
     height: 0;
-    border-left: 100px solid transparent;
-    border-right: 100px solid transparent;
-    border-bottom: 65px solid #ffb6c1;
+    border-left: 110px solid transparent;
+    border-right: 110px solid transparent;
+    border-bottom: 75px solid #ff9ecb;
     transform-origin: top;
-    transition: 0.8s;
+    transition: 1s;
 }
 
 .open .flap { transform: rotateX(180deg); }
 
 .tap-text {
-    margin-top: 15px;
+    margin-top: 18px;
     color: white;
+    font-size: 1.1em;
 }
 
-/* Love card */
+/* Card */
 .card {
     display: none;
     text-align: center;
-    background: rgba(255,255,255,0.2);
-    backdrop-filter: blur(10px);
-    padding: 30px;
-    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    padding: 35px 25px;
+    border-radius: 25px;
     color: white;
-    max-width: 350px;
+    max-width: 380px;
+    box-shadow: 0 0 50px rgba(255,255,255,0.3);
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .photo {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid white;
-    margin-bottom: 10px;
+    border: 5px solid white;
+    box-shadow: 0 0 25px rgba(255,255,255,0.8);
+    margin-bottom: 12px;
 }
 
-/* Letter style */
+h2 { margin-bottom: 5px; }
+
+/* Letter */
 .letter {
     background: #fffaf3;
     color: #6b3e3e;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     margin-top: 15px;
     font-family: Georgia, serif;
     text-align: left;
+    line-height: 1.7em;
 }
 
 .signature {
     margin-top: 15px;
     text-align: right;
     font-style: italic;
+    color: #d6336c;
 }
 </style>
 </head>
@@ -97,7 +128,7 @@ body {
     <div class="envelope" id="envelope">
         <div class="flap"></div>
     </div>
-    <div class="tap-text">Tap to open 💌</div>
+    <div class="tap-text">Tap to open your love letter 💌</div>
 </div>
 
 <div class="card" id="card">
